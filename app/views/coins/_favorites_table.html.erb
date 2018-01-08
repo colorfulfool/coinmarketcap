@@ -1,0 +1,25 @@
+<table>
+  <caption>Seleted coins</caption>
+  
+  <% favorite_coins.each do |coin| %>
+    <tr data-coin="<%= coin.id %>">
+      <td><%= coin.name %> <%= link_to coin.ticker, mark_coin_path(coin), method: :post, remote: true %></td>
+      <td><%= number_to_currency coin.price %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= arrow %>
+
+<p class="commentary">
+  Read the coin white paper and see if it solves, or at least aims to solve, a real world problem.
+</p>
+
+<p class="commentary">
+  Read the team bios to look for all-star members.
+</p>
+
+<p class="commentary">
+  If you like the coin, then do some Technical Analysis on it’s price action, both short term and long term, and draw trend lines.<br><br> TA will help you find buying and selling zones for entries and exits, but most importantly it will give you what you should refer to from now on as your system for risk management (ie - stop losses).
+</p>

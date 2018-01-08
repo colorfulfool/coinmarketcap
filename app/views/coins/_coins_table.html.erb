@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th></th>
+    <th>Market cap</th>
+    <th>Price, $</th>
+    <th>Supply</th>
+  </tr>
+
+  <tbody>
+    <% @coins.each do |coin| %>
+      <tr data-coin="<%= coin.id %>">
+        <td><%= coin.name %> <%= link_to coin.ticker, mark_coin_path(coin), method: :post, remote: true %></td>
+        <td><%= huge_number coin.marketcap %></td>
+        <td><%= number_to_currency coin.price, unit: '' %></td>
+        <td><%= huge_number coin.supply %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

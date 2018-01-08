@@ -1,0 +1,5 @@
+<%= form_with url: root_path, method: :get, remote: true, id: "filters_form" do |form| %>
+  Market cap < <%= numerical_param_field :marketcap %> M and
+  Supply < <%= numerical_param_field :supply %> M and
+  Price < <%= numerical_param_field :price %>
+<% end %>

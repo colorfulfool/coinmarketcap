@@ -1,0 +1,3 @@
+document.querySelector('#coins_table').innerHTML = "<%=j render 'coins_table' %>"
+
+loadingFinished("Found <%= pluralize @coins.count, 'coin' %>. Click on tickers to select.")

@@ -1,0 +1,24 @@
+<div class="padded">
+  <h3 style="margin-top: 0px" contenteditable>Distribution</h3>
+  
+  <input name="amount" value="0.1" /> <span contenteditable name="distributionCurrency">ETH</span>
+  representing $<input name="dollarAmount" value="100" />
+</div>
+
+<table>
+  <% @coins.each do |coin| %>
+    <tr data-coin="<%= coin.id %>">
+      <td class="checkbox"><input type="checkbox" /></td>
+      <td><%= coin.name %> <%= link_to coin.ticker, mark_coin_path(coin), method: :post, remote: true %></td>
+      <td name="dollarShare">$25</td>
+      <td name="share"></td>
+      <td name="exchange" style="color: lightgray">
+        <span contenteditable>???</span>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="padded">
+  Selected: <span name="selectedTotal">0</span>
+</div>

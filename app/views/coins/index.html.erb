@@ -1,0 +1,20 @@
+<div class="padded introduction">
+  <%= arrow %>
+    
+  <p class="commentary">Look for coins with <$500M market cap and a circulating supply <200M, check to see a cheap price per coin, etc.</p>
+  <%= render "filters" %>
+  
+  <%= arrow %>
+  
+  <p id="found_coins">Found <%= pluralize @coins.count, "coin" %>. Click on tickers to select.</p>
+</div>
+
+<div class="columns-inside">
+  <div id="coins_table">
+    <%= render "coins_table" %>
+  </div>
+  
+  <div id="favorites_table">
+    <%= render "favorites_table" %>
+  </div>
+</div>
