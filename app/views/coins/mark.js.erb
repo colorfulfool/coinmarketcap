@@ -1,6 +1,6 @@
 document.querySelectorAll('<%= "[data-coin=\"#{@coin.id}\"]".html_safe %>').forEach(function (coinRow) { 
   coinRow.style.background = "<%= @coin.marked ? '#EDAFB8' : '#EF626C' %>"
-  setTimeout(function () { coinRow.style.background = 'white'; }, 500)  
+  setTimeout(function () { coinRow.style.background = 'white'; }, 200)
 })
 
 
