@@ -8,7 +8,11 @@ class CoinsController < ApplicationController
   
   def mark
     @coin = Coin.find(params[:id])
-    @coin.update marked: !@coin.marked
+    if @coin.in? selected_coins
+      set_selected_coins selected_coins.where.not(id: @coin)
+    else
+      set_selected_coins selected_coins + [@coin]
+    end
   end
   
   def erase_markings
@@ -23,4 +27,14 @@ class CoinsController < ApplicationController
       params[:supply] ||= 200
       params[:price] ||= 0.7
     end
+    
+    def selected_coins
+      Coin.where id: session[:selected_coins]&.split(",")
+    end
+    
+    def set_selected_coins coins
+      session[:selected_coins] = coins.collect(&:id).join(",")
+    end
+    
+    helper_method :selected_coins
 end
